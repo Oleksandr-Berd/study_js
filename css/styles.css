@@ -34,13 +34,17 @@
     width: 20px;
     height: 20px;
 
-    transform: translateY(-50%);
+    transform: translateY(calc(-50% + 35px));
     
     background-color: orange;
 }
 
 .btn:hover::before{
 transform: translateY(-35px);
+}
+
+.btn:hover::after {
+    transform: translateY(-50%);
 }
 
 .btn:hover,
