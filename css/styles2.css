@@ -1,3 +1,18 @@
 .menu-item:not(last-child){
     margin-right: 10px;
 }
+.menu-link{
+    outline: 1px solid black;
+
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: currentColor;
+}
+
+.menu-link::after{
+    content: '';
+
+    display: block;
+    width: 100%;
+}
