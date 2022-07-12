@@ -226,26 +226,26 @@ const loginToFind = `vSevOlodYch`;
 
 // console.log(total);
 
-const cards = [
-    `Card1`,
-    `Card2`,
-    `Card3`,
-    `Card4`,
-    `Card5`,
-]
-console.table(cards);
+// const cards = [
+//     `Card1`,
+//     `Card2`,
+//     `Card3`,
+//     `Card4`,
+//     `Card5`,
+// ]
+// console.table(cards);
 
-const cardToRemove = `Card3`;
-const index = cards.indexOf(cardToRemove);
-console.log(index);
+// const cardToRemove = `Card3`;
+// const index = cards.indexOf(cardToRemove);
+// console.log(index);
 
-cards.splice(index, 1);
+// cards.splice(index, 1);
 
-console.table(cards);
+// console.table(cards);
 
-const cardToInsert = `Card6`;
-const index = 3;
+// const cardToInsert = `Card6`;
+// const index = 3;
 
-cards.splice(index, 0, cardToInsert);
+// cards.splice(index, 0, cardToInsert);
 
 
