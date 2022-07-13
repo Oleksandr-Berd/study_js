@@ -248,4 +248,71 @@ const loginToFind = `vSevOlodYch`;
 
 // cards.splice(index, 0, cardToInsert);
 
+// 1.
+// створити масив з елементами "Jazz" і "Blues"
+// додати "Rock" в кінець масиву
+// вивести в консоль перший елемент масиву(не видаляючи його)
+// вивести в консоль останній елемент масиву.Має працювати для будь - якої довжини.
+// видалити з масиву перший елемент і вивести його в консоль
+// додати "Country" і "Reggy" в початок масиву(зберегти порядок)
 
+// const genres = ["Jazz", "Blues"];
+
+// genres.push("Rock");
+
+// console.log(genres[0]);
+
+// const indexLastElement = genres.lenght - 1;
+// console.log(genres[indexLastElement]);
+
+// const firstElement = genres.shift();
+// console.log(firstElement);
+
+// genres.unshift("Country", "Reggy");
+// console.log({ genres });
+
+// 2.
+// написати скрипт для обчислення пллощі прямокутника зі сторонами, довжину яких
+// отримаємо у змінній "sides" у вигляді строки.
+// Значення гарантовано розділенні одним пробілом.
+
+// const sides = "7 10";
+// const sidesSeparates = sides.split(" ");
+
+// const area = sidesSeparated[0] * sidesSeparated[2];
+
+// console.log({ sidesSeparated, area });
+
+
+// 3.
+// написати скрипт для перебору масиву "fruits" циклом for
+// для кожного елемента вивести в консоль строку формата "номер елемента: значення елемента "
+// нумерація має починатися з 1
+
+// const fruits = ["apple", "grape", "peach", "banana", "lemon"];
+// const fruitsToIgnore = ["banana", "lemon"];
+
+// for (let i = 0; i < fruits.length; i++){
+//     const item = fruits[i];
+//     if (fruitsToIgnore.includes(item)) {
+//         continue;
+//     }
+
+//     console.log(`${i + 1}: ${item}`);
+// }
+
+// op2
+
+// const filtered = fruits.filter((item) => fruitsToIgnore.includes(item));
+
+// console.log(filtered);
+
+
+написати скрипт, що виводить в консоль імʼя і телефон користувачів.
+У змінних "names" і "phones" зберігаються строки імен і телефонних номерів, розділені комами.
+Порядок імен відповідає порядку номерів.
+Кількість імен та телефонів гарантовано однакова.
+Обрати зручний формат
+
+const names = "Jacob,Wiliam,Solomon,Nicolas";
+const phones = "89001234567,89001112233,890055566300";
