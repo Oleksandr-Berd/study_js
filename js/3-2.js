@@ -185,43 +185,109 @@
 // })
 
 
-const showProfileInfo = function (userProfile) {
+// const showProfileInfo = function (userProfile) {
     
-    const { name, tag, location, avatar, stats: { followers, views, likes } } = userProfile;
+//     const { name, tag, location, avatar, stats: { followers, views, likes } } = userProfile;
     
-    console.log(name, tag, location, avatar, followers, views, likes);
-}
-
-const profile = {
-    name: "Jack Gluck",
-    tag: "jcgk",
-    locayion: "Ocho Rios, Jamaica",
-    avatar: "http://twitter/1234.jpg,
-    stats: {
-        followers: 5603,
-        views: 4827,
-        likes: 1308,
-    }
-}
-
-showProfileInfo(profile);
-
-
-
-// const cart = {
-//     items =[],
-//     getItems =[] { },
-//     add(product){ },
-//     remove(productName){ },
-//     clear() { },
-//     countTotalPrice() { },
-//     increaseQuantity(productName){ }
-//     decreaseQuantity(productName){ }
+//     console.log(name, tag, location, avatar, followers, views, likes);
 // }
 
-// console.table(cart.getItems());
+// const profile = {
+//     name: "Jack Gluck",
+//     tag: "jcgk",
+//     locayion: "Ocho Rios, Jamaica",
+//     avatar: "http://twitter/1234.jpg,
+//     stats: {
+//         followers: 5603,
+//         views: 4827,
+//         likes: 1308,
+//     }
+// }
 
-// cart.add({ name: "apple", price: 50 });
-// cart.add({ name: "lemon", price: 50 });
-// cart.add({ name: "lemon", price: 50 });
-// cart.add({ name: "strawberry", price: 50 });
+// showProfileInfo(profile);
+
+
+
+const cart = {
+items =[],
+getItems =[] {
+    return this.items;
+     },
+add(product){
+
+    console.table(this.items);
+    for (const item of this.items) {
+        
+        if (item.name === product.name) {
+            item.quantity += 1;
+            return;
+        }
+    }
+
+    const newProduct = {
+        ...product,
+        quantity = 1,
+    }
+
+    this.items.push(product);
+},
+remove(productName){
+   
+    const { item } = this;
+   
+    for (let i = 0; i <= items.length; i += 1){
+        
+        const item = item[i];
+        console.log(item);
+
+        if (productName === item.name) {
+            console.log("Find particular product ", productName);
+            console.log(i);
+
+            items.splice("index: ", 1);
+    }
+    }
+    
+    // for (const item of this.items) {
+    //     console.log(item);
+    // }
+    
+
+     },
+clear() {
+    this.item = [];
+ },
+
+
+countTotalPrice() {
+    const { items } = this;
+
+    let total = 0;
+
+    for (const {price, quantity} of items) {
+        
+        total += price * quantity;
+
+        return total;
+    }
+ },
+
+increaseQuantity(productName){ }
+decreaseQuantity(productName){ }
+}
+
+console.log(cart.getItems());
+
+cart.add({ name: "apple", price: 50 });
+cart.add({ name: "grape", price: 60 });
+cart.add({ name: "lemon", price: 60 });
+cart.add({ name: "strawberry", price: 110 });
+
+console.log(card.getItems());
+
+cart.remove("apple");
+
+cart.clear();
+console.log(cart.getItems());
+
+console.log("Total: ", countTotalPrice());
