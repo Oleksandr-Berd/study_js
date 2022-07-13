@@ -32,13 +32,13 @@
 
 // iteration
 
-const feedback {
-    good: 5,
-    neutral: 10,
-    bad: 3,
-}
+// const feedback {
+//     good: 5,
+//     neutral: 10,
+//     bad: 3,
+// }
 
-let totalFeedback = 0;
+// let totalFeedback = 0;
 // const keys = Object.keys(feedback);
 
 
@@ -184,20 +184,20 @@ let totalFeedback = 0;
 // console.log(Object.keys(x).length);
 
 
-const cart = {
-    items =[],
-    getItems =[] { },
-    add(product){ },
-    remove(productName){ },
-    clear() { },
-    countTotalPrice() { },
-    increaseQuantity(productName){ }
-    decreaseQuantity(productName){ }
-}
+// const cart = {
+//     items =[],
+//     getItems =[] { },
+//     add(product){ },
+//     remove(productName){ },
+//     clear() { },
+//     countTotalPrice() { },
+//     increaseQuantity(productName){ }
+//     decreaseQuantity(productName){ }
+// }
 
-console.table(cart.getItems());
+// console.table(cart.getItems());
 
-cart.add({ name: "apple", price: 50 });
-cart.add({ name: "lemon", price: 50 });
-cart.add({ name: "lemon", price: 50 });
-cart.add({ name: "strawberry", price: 50 });
+// cart.add({ name: "apple", price: 50 });
+// cart.add({ name: "lemon", price: 50 });
+// cart.add({ name: "lemon", price: 50 });
+// cart.add({ name: "strawberry", price: 50 });
