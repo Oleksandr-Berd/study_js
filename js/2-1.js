@@ -308,11 +308,150 @@ const loginToFind = `vSevOlodYch`;
 // console.log(filtered);
 
 
-написати скрипт, що виводить в консоль імʼя і телефон користувачів.
-У змінних "names" і "phones" зберігаються строки імен і телефонних номерів, розділені комами.
-Порядок імен відповідає порядку номерів.
-Кількість імен та телефонів гарантовано однакова.
-Обрати зручний формат
+// написати скрипт, що виводить в консоль імʼя і телефон користувачів.
+// У змінних "names" і "phones" зберігаються строки імен і телефонних номерів, розділені комами.
+// Порядок імен відповідає порядку номерів.
+// Кількість імен та телефонів гарантовано однакова.
+// Обрати зручний формат
 
-const names = "Jacob,Wiliam,Solomon,Nicolas";
-const phones = "89001234567,89001112233,890055566300";
+// const names = "Jacob,Wiliam,Solomon,Nicolas";
+// const phones = "89001234567,89001112233,890055566300";
+
+// const splitNames = names.split(`,`);
+// const splitPhones = phones.split(`,`);
+
+// for (let i = 0; i < splitNames.length; i++){
+//     const name = splitNames[i];
+//     const phone = splitPhones[i];
+
+//     console.log(`Name: ${name}`, `Phone: ${phone}`);
+// }
+
+
+// написати скрипт, що виводить в консоль задану фразу без першого і остннього слів.
+// Фінальна строка не має починатись чи закінчуватись пробілом.
+// Скрипт має працюват для будь - якої строки.
+
+// const phrase = `Welcome to the bright future`;
+
+// const words = phrase.split(` `);
+// words.pop;
+// words.shift;
+
+// cutPhrase = words.join(` `);
+
+
+// console.log({ cutPhrase });
+
+// op2
+
+// const firstSpace = phrase.indexOf(` `);
+// const lastSpace = phrase.lastIndexOf(` `);
+
+// const cutPhrase = phrase.slice(firstSpace + 1, lastSpace);
+
+// console.log({ cutPhrase });
+
+
+
+// написати скрип, який "розверне" строку(зворотній порядок літер) і виведе в консоль.
+// Три варіанти - цикл for (без масивів), цикл for of + масиви, без циклів
+
+
+// const phrase = `Welcome to the bright future`;
+
+// let reversed = ``;
+
+// for (let i = phrase.length - 1; i >= 0, i--){
+//     const item = phrase.charAt(i);
+
+//     reversed += item;
+// }
+
+// const reserved =
+
+//     console.log(`reserved:`, reserved);
+
+// op 2
+
+// const phrase = `Welcome to the bright future`;
+
+// const chars = phrase.split(``);
+
+// const reversedArray = [];
+
+// for (const item of chars) {
+//     reversedArray.unshift(item);
+// }
+
+// const reversed = reversedArray.join(``);
+
+// console.log(`reverved:`, reverved);
+    
+    
+// op 3
+
+// const chars = phrase.split(``);
+// const reversed = chars.reverse().join(``);
+
+// console.log(`reversed:`, reversed);
+    
+
+
+// написати скрипт пошуку найменшого числа в масиві.
+
+// const numbers = [2, 17, 94, 1, 23, 27];
+
+// let min = Math.min(...numbers);
+
+// console.log(`min is ${min}`, numbers);
+
+// op 2
+
+// let min = numbers[0];
+
+// for (const number of numbers) {
+//     if (min < number) {
+//         min = number;
+//     }
+// }
+
+// console.log(`min is ${min}`, numbers);
+
+// op 2.1
+
+// let min = numbers[0];
+
+// for (const number of numbers) {
+    
+//     min = number < min ? number : min;
+// }
+// console.log(`min is ${min}`, numbers);
+
+// op 2.2
+
+// let min = numbers[0];
+
+// for (const number of numbers) {
+    
+//     min = Math.min(number, min);
+// }
+// console.log(`min is ${min}`, numbers);
+
+
+написати скипт сортування масиву строк в алфавітному порядку
+
+const langs = [`python`, `javascript`, `c++`, `haskel`, `php`, `ruby`, `ada`];
+
+for (let i = 0; i < langs.lenght - 1; i++){
+    const current = langs[i];
+    const next = langs[i + 1];
+
+    console.log(`comparing ${current} and ${next}`)
+
+    if (current > next) {
+        console.log(`swapping!`);
+    }
+}
+
+console.log(langs);
