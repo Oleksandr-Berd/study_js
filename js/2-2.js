@@ -120,3 +120,169 @@
 //     return uniqueElements;
 // }
 
+
+// створити функцію printContactsInfo(names, phones), яка виведе в консоль імʼя і телефон
+// користувача.В параметри name і phones очікуються строки імен і номерів, розділені комами.
+// Порядковий номер імені і номеру вказує на відповідність.
+// Кількість імен і номерів гарантовано однакова.
+
+
+// function prinContactsInfo(names = ``, phones = ``) {
+//     const arrayOfNames = names.split(`,`);
+//     const arrayOfPhones = phones.split(`,`);
+
+//     console.log(`arrayOfNames`, arrayOfNames);
+//     console.log(`arrayOgPhones`, arrayOfPhones);
+
+//     const noPhone = `no-phone`;
+
+//     for (let i = 0; i < arrayOfNames.length; i += 1){
+//         const aNames = arrayOfNames[i];
+//         const aPhones = arrayOfPhones[i];
+
+//         // opt1
+//         // console.log(`name: ${aName}; phone: ${aPhone ? aPhone : noPhone}`);
+
+//         //  opt2
+//         console.log(`name: ${aName}; phone: ${aPhone || noPhone}`);
+//     }
+// }
+//     printContactsInfo(
+//         `Jacob,William,Solomon,Nicolas`,
+//         `89001234567,89001112233,89005556677`,
+//     )
+
+
+// написати функцію `getRectangleArea(dimensions)` для обчислення площі прямокутника
+// зі сторонами, значення яких отримаємо в параметр `dimensions` у вигляді строки
+// Значення гарантовано розділені пробілом.
+
+
+// @param { string } sizes
+
+// /**
+//  * Calculates area of rectangle
+//  * 
+//  * @param {string} sizes 
+//  * @returns {number}
+//  */
+
+// function getRectanglArea(sizes) {
+    
+//     const arrayOfSizes = sizes.split(` `);
+//     console.log(`arrayOfSizes`, arrayOfSizes);
+    
+//     const calculatedArea = arrayOfSizes[0] * arrayOfSizes[1];
+
+//     return calculatedArea;
+// }
+
+// const area = getRectangArea(`8 11`);
+// console.log(`Rect area is ${area}`);
+
+
+
+// написати функцію`min (a, b)`, яка повертає найменше з чисел  `a` і`b`
+
+// function min(a, b) {
+   
+//    return Math.min(a, b);
+// }
+
+// console.log( min(2, 5) );
+// console.log(min(3, -1) );
+// console.log(min(1, 1) );
+
+// // stack:
+// // - console.log() < 2
+// // - - min(2, 5) < 2
+// // - - - Math.min(1, 5) < 2
+
+
+
+// написати функцію `findLargestNumber(numbers)` яка повертає найбільше значення
+// із переданого масиву
+
+
+// function findLargestNumber(numbers = []) {
+//     // return Math.max(...numbers);
+
+//     opt 2
+
+//     let maxNumber = 0;
+
+//     for (const item of numbers) {
+//         console.log(item);
+
+//         maxNumber = Math.max(item, maxNumber);
+
+//         return maxNumber;
+//     }
+// }
+
+// console.log(findLargestNumber([2, 17, 94, 1, 23, 37]));
+// console.log(findLargestNumber([49, 4, 7, 83, 12]));
+
+
+написати функцію `getAvarage()` що приймає будь - яку кількість аргументів
+і повертає їх середнє значення.Всі аргементи тільки числа
+
+function getAvarage() {
+   
+// //    opt1 - arguments
+//     console.log(`argeument`, arguments);
+
+//     // early return
+//     if (arguments.length === 0) {
+//         console.warn(`no arguments are set`);
+//         return null;
+//     }
+    
+    
+//     console.log(`argument's lenght`, agruments.length);
+
+//     const arrayOfValues = Array.from(arguments);
+
+//     console.log(`arrayOfValues`, arrayOfValues);
+
+//     let total = 0;
+//     for (const number of arrayOfValues) {
+//         total += number;
+//     }
+
+//     return total / arrayOfValues.length;
+// }
+    
+    
+//     opt 2
+
+//     function getAvarageWithRest(...items) {
+//         console.log(`> rest into items:`, items);
+//         Math.max(...items);
+//     }
+
+// console.log(getAvarage(1, 2, 3, 4));
+// console.log(getAvarage(14, 8, 2));
+// console.log(getAvarage(27, 43, 2, 8, 36))
+
+// console.log(getAvarageWithRest(1, 45, 8));
+// console.log(getAvarageWithRest());
+
+
+написати функцію `calcBMI(weight, height)` що розраховує і повертає
+індекс маси тіла людини.Для цього необхідно поділити масу тіла людини в кг
+на квадрат висоти людини в метрах.
+Вага і зріст будуть передаватись у вигляді строк.Дробні числа можуть бути задані
+    як `24.7` або`24,7`.тобто десятинний розділювач або крапка або кома.
+Індекс маси необхідно округлити до однієї цифри після коми(до десятих).
+
+
+   function calcBMI(weight, height) {
+    
+       result = weight / Math.pow(height, 2);
+
+       return result;
+   }
+    
+    const bmi = calcBMI(`88,3`, `1.75`);
+    console.log(`bmi`, bmi);

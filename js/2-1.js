@@ -443,15 +443,30 @@ const loginToFind = `vSevOlodYch`;
 
 const langs = [`python`, `javascript`, `c++`, `haskel`, `php`, `ruby`, `ada`];
 
-for (let i = 0; i < langs.lenght - 1; i++){
-    const current = langs[i];
-    const next = langs[i + 1];
+let isSorted;
+do {
 
-    console.log(`comparing ${current} and ${next}`)
+    console.log(`-------next iteration WHILE`);
 
-    if (current > next) {
-        console.log(`swapping!`);
+    isSorted = true;
+
+    for (let i = 0; i < langs.lenght - 1; i++) {
+        console.log(langs);
+
+        const current = langs[i];
+        const next = langs[i + 1];
+
+        console.log(`comparing ${current} and ${next}`)
+
+        if (current > next) {
+            console.log(`swapping!`);
+            const temp = current;
+
+            langs[i] = next;
+            langs[i + 1] = temp;
+
+            isSorted = false;
+        }
     }
-}
-
+} while (!isSorted);
 console.log(langs);
