@@ -201,3 +201,357 @@
 // cart.add({ name: "lemon", price: 50 });
 // cart.add({ name: "lemon", price: 50 });
 // cart.add({ name: "strawberry", price: 50 });
+
+
+const contentA = {
+    type: "movie",
+    name: "Iron Man 4.5",
+    reting: null,
+}
+
+const contentB = {
+    type: "episode",
+    name: "The Walking Dead S1 E4",
+    tv_rating: null,
+}
+
+const contentC = {
+    type: "actor",
+    name: "Will Smith",
+    age: 42,
+}
+
+// function setRating(conten, rating) {
+    
+//     const ratingKey = content.type === "movie" ? "rating" : "tv_rating";
+    
+//     content.[ratingKey] = rating;
+// }
+
+
+const config = {
+    movie: "rating",
+    episode: "tv_rating",
+}
+
+function setRating(conten, rating) {
+    
+    const ratingKey = config[content.type];
+
+    if (!ratingKey) {
+        console.warn("actor have no rating");
+        return;
+    }
+    
+    content.[ratingKey] = rating;
+}
+
+
+setRating(contentA, "PG13");
+setRating(contentB, "R");
+setRating(contentC, "R");
+
+console.log("contentA: ", contentA);
+
+console.log("contentB: ",contentB);
+
+console.log("contentC: ", contentC;
+
+
+// базові операції з обʼєктами 
+
+const user = {
+    name: "Simon",
+    age: 25,
+    hobby: "swimming",
+    isPremium: true,
+    addNewKey(keyName, keyValue) {
+        this[keyName] = keyValue;
+    }
+}
+
+// додасть нове властивість 'mood' із знааченням "happy" 
+
+user.mood = "happy";
+op2
+user["mood"] = "happy";
+
+// замінити значення "hobby" на "birdwatching"
+
+user.hobby = "birdwatching";
+v2
+user["hobby"] = "birdwatching";
+
+
+// замінити значення premium на false 
+
+user.isPremium = false;
+op2
+user.isPremium = !user.isPremium;
+
+
+// виведе все що знаходиться всередині "user" в форматі "ключ: значення"
+// використвоючи Object.keys() + loop for...of  
+
+const userKeys = Object.keys(user);
+
+console.log("userKeys", userKeys);
+
+for (const key of userKeys) {
+    console.log(`${key}:${user[key]} `);
+}
+
+/*написати функцію, яка буде додавати до обʼєкта "user" передану в аргументах 
+властивість та її значення
+*/
+
+const addNewKey = function (newKeyName, newKeyValue) {
+    user[newKeyName] = newKeyValue;
+}
+
+addNewKey("country", "US");
+
+// op2 via method 
+
+user.addNewKey("city", "NY");
+
+// видалити ключ hobby із обʼєкта 
+
+delete user.hobby;
+// op2 
+delete user["hobby"];
+
+console.log("user", user);
+
+
+/*
+обʼєкт "order", який містить послуги одного замовлення на автосервісі
+у форматі (послугаЖ ціна). Написати код для виводу суми всього замовлення
+Якщо обʼєкт пустий, результат має бути 0
+*/
+
+const order = {
+    carWash: 100,
+    oilChange: 450,
+    tyreRepair: 235,
+}
+
+const values = Object.values(order);
+
+let total = 0;
+
+for (const price of values) {
+    total += price;
+}
+
+// op2 via function 
+
+function getOrderTotal(order) {
+
+    const values = Object.values(order);
+
+    let total = 0;
+
+for (const price of values) {
+    total += price;
+}
+    return total;
+}
+
+console.log("Total: ", total);
+
+console.log("Total from fn: ", getOrderTotal(order));
+
+const emptyOrder = {};
+
+onsole.log("empty total from fn: ", getOrderTotal(emptyOrder));
+
+
+/*
+Написати функцію "getPriceOfStones(storage, stoneName)", що отримує дані
+про замаси на складі (у вигляді масиву обʼєктів) і потрібну назву товару.
+Функція має для заданого каменя повертати загалбну вартість запасів 
+на складі - ціна з урахуванням кількості.
+Якщо камінь не знайдено - повертати null і кидати помилку в консоль.
+Якщо камінь є в реєстрі, але закінчився (quantity: 0) - повертати 0 і кидати warning
+*/
+
+
+/**
+ * 
+ * @param {Object[]} storage 
+ * @param {string} stoneName 
+ */
+
+function getPriceOfStones(storage, stoneName) {
+    // 1. знайти потрібний товар 
+
+    let ourStone = null;
+
+    for (const item of storage) {
+        if (item.name === stoneName) {
+            ourStone = item;
+            break; //знайшли потрібне
+      };
+    }
+
+    if (!ourStone) {
+        console.error("Not found!");
+        return null;
+    }
+
+    if (!totalPrice) {
+        console.warn("Not enough stones");
+        return null;
+    }
+
+    console.log("ourStone: ", ourStone);
+    
+    //2. підрахувати загальну вартість 
+
+    const totalPrice = ourStone.price * ourStone.quantity;
+
+    
+
+    return totalPrice;
+}
+
+const storageContent = [
+    { name: "Emerald", price: 1300, quantity: 4, };
+    { name: "Diamand", price: 2700, quantity: 3,};
+    { name: "Sapphire", price: 900, quantity: 7 };
+    { name: "Pearl", price: 200, quantity: 0 };
+]
+
+
+//виклик функції
+
+
+console.log("Total price: ", totalPrice, getPriceOfStones (storageContent, "Diamand"));
+;
+
+
+
+/* написати скипт для персонального кабінету інтенет-банкінга.
+Є головний обʼкт "account", в який необхідно додати методи роботи
+з балансом та історією трансакцій.
+Типів транзакцій два: можна покласти або зняти з рахунку.
+*/
+
+const TRANSACTIONS = {
+    DEPOSIT: "deposit",
+    WITHDRAW: "withdraw",
+}
+
+//кожна транзакція це обʼєкт з полями id, type, amount
+
+const account = {
+    //поточний баланс
+    balance = 0;
+}
+
+/**
+ * повертає поточний стан балансу
+ * @returns {number}
+ */
+
+getBalance(){
+    return this.balance;
+ }
+
+/**
+ * створює і повертає нову транзакцію за заданим типом і сумою
+ * @param {number} amount
+ * @param {string} type
+ * 
+ * @returns {{id: number, amount: number, type: string}};
+ */
+
+createTransaction(amount, type){
+    return {
+        id: Math.round(Date.now() * Math.random()),
+        type,
+        amount,
+    }
+ }
+
+/**
+ * додає суму на баланс.
+ * Створює в історії транзакцій (викликає для цього createTransaction)
+ * @param {number} ammount сума яка буде додана на баланс
+ */
+
+deposit(amount){
+
+    const transactions = this.createTransaction(amount, TRANSACTIONS.DEPOSIT);
+    this.transactions.push(transaction);
+
+    this.balance += amount;
+}
+
+/**
+ * знміає суму з баланса.
+ * Створює запис в історії транзакцій (викликає для цього createTransaction)
+ * 
+ * якщо недостатньо грошей - повертає null, пише ворнінг в консоль 
+ * @param {number} ammount сума яка буде знята з баланса
+ * @returns {???????}
+ */
+
+withdraw(amount){
+
+    if (amount > this.balance) {
+        console.warn("not enough fonds");
+        return null;
+    }
+
+    const transactions = this.createTransaction(amount, TRANSACTIONS.WITHDRAW);
+    this.transactions.push(transaction);
+
+    this.balance -= amount;
+}
+
+/**  шукає транзакцію по заданому id.
+Повертає null якщо id не знайдено
+@param {number} id id транзакції
+@returns {Object}
+*/
+
+getTransactionDetails(id){
+    l
+    et foundTransaction = null;
+   
+    for (const tr of this.transactions) {
+        if (tr.id === id) {
+            foundTransaction = tr;
+            break;
+        }
+    }
+
+    return foundTransaction;
+ }
+
+/**
+ * повертає загальну суму транзакцій в історіі
+ * @param {string} id
+ * @returns {number}
+ */
+
+getTransactionTotal(type){
+
+    let total = 0;
+
+    for (const tr of this.transactions) {
+        if (tr.type === type) {
+            total += tr.amount;
+        }
+    }
+    return total;
+ }
+
+
+//test
+console.log("1. getBalance", account.getBalance());
+
+account.deposit(1000);
+console.log("2. getBalance + 1000", account.getBalance());

@@ -291,3 +291,164 @@ cart.clear();
 console.log(cart.getItems());
 
 console.log("Total: ", countTotalPrice());
+
+
+// Rapper
+
+//destructuring
+
+const testObject = {
+    outerName ='i am a test',
+    phone: 0952844818,
+    innerObj: {
+        innerName: 'I am inside',
+    }
+}
+
+const { outerName, phone: outerPhone, innerObj: { innerName } } = testObj; // phone: outerPhone - пересвоение
+
+// const outerPhone = testObj.phone;
+
+const { outerName, ...newObj } = testObject;
+
+console.log(outerName, outerPone, innerName);
+
+console.log('new obj', newObj);
+
+
+// with arrays
+
+const testArray = [1, 45, 8, 42, 81];
+
+const [firstElem, secondElem, ...newArray] = testArray;
+
+console.log('array', firstElem, secondElem, newArray);
+
+
+function foo({ username } = {}) {
+    console.log(username);
+}
+
+foo(); //undefined
+foo({}); //undefined
+const obj = { username: 'test' };
+foo(obj); //test
+
+/* переписати функцію таким чином, щоб приймала один обʼєкт параметрів,
+замість набору незалежних аргументів
+*/
+
+/**
+ * @param {Object} param
+ * @param {string} param.weight
+ * @param {string} param.height
+ * 
+ * @return {number}
+ */
+
+function calcBMI(weight, height) {
+    
+    const numericWeight = Number(weight.replace(',', '.'));
+
+    const numericHeight = Number(height.replace(',', '.'));
+
+    return ((Number.weight / Number.height ** 2).toFixed(1));
+}
+
+// what now
+
+console.log(calcBMI('88,3', '1.75'));
+console.log(calcBMI('68,3', '1.65'));
+console.log(calcBMI('118,3', '1.95'));
+
+// wait for
+
+console.log(
+    calcBMI({
+        weight: '88,3',
+        height: '1.75',
+    })
+);
+console.log(
+    calcBMI({
+        weight: '68,3',
+        height: '1,65',
+    })
+);
+console.log(
+    calcBMI({
+        weight: '118.3',
+        height: '1,95',
+    })
+);
+
+// changing
+
+function calcBMI({ weight, height }) {
+    
+    const numericWeight = Number(weight.replace(',', '.'));
+
+    const numericHeight = Number(height.replace(',', '.'));
+
+    return ((Number.weight / Number.height ** 2).toFixed(1));
+}
+
+/* переписати функцію так, щоб приймала один обʼєкт параметрів,
+замість набору незалежних аргументів
+*/
+
+function prinContactInfo(names = '', phones = '') {
+    
+    const nameList = names.split(',');
+
+    const phoneList = phones.split(',');
+
+    for (let i = 0; i < nameList.length; i+=1) {
+        
+        console.log(`user: ${nameList[i]} | tel: ${phoneList[i]}`);
+    }
+}
+
+const names = 'Jacob,William,Solomon,Nicolas';
+const phones = '1234567,7654321,1112223,2223334',
+
+/* now
+
+prinContactInfo (names, phones);
+
+waiting
+
+printContactInfo({
+    names = 'Jacob,William,Solomon,Nicolas',
+    phones = '1234567,7654321,1112223,2223334',
+});
+*/
+
+function prinContactInfo({ names = '', phones = '' } ) {
+    
+    const nameList = names.split(',');
+
+    const phoneList = phones.split(',');
+
+    for (let i = 0; i < nameList.length; i+=1) {
+        
+        console.log(`user: ${nameList[i]} | tel: ${phoneList[i]}`);
+    }
+}
+
+or 
+
+function prinContactInfo(params) {
+
+    const { names = '', phones = '' } = params;
+
+    const nameList = names.split(',');
+
+    const phoneList = phones.split(',');
+
+    for (let i = 0; i < nameList.length; i+=1) {
+        
+        console.log(`user: ${nameList[i]} | tel: ${phoneList[i]}`);
+    }
+}
+
