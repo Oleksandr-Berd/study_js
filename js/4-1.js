@@ -455,3 +455,163 @@ const objA = {
     }
 }
 objA.showX();
+
+// from Rapper
+
+/*
+callbacks
+generator of randoms id
+*/
+
+/**
+ * @returns {string}
+ */
+
+function generatedID () {
+    return '_' + Math.random().toString(36).slice(2, 9);
+}
+
+
+/**
+ * @param {Object} partialData
+ * @param {Function} onCreate
+ * @returns {Object} new product
+ */
+
+function createProduct(newProduct, onCreate) {
+    // return {
+    //     id: generatedID(),
+    //     createdAt: Date.now,
+    //     ...parialData
+    // };
+
+    const newProduct = {
+        id: generatedID(),
+        createdAt: Date.now,
+        ...parialData
+    }
+
+    const fristCallback = (product) => {
+        console.log(product);
+    }
+
+    onCreate(newProduct);
+}
+
+console.log(createProduct({ title: 'I am the object' }, fristCallback));// old example: undefinied
+
+createProduct({ title: 'I am the object' }, fristCallback);
+
+// op2
+
+createProduct({ title: 'I am the object toooo' }, (product) => { console.warn(product); });
+
+
+//task 2 callback
+
+const TRANSACTION_LIMIT = 1000;
+
+const account = {
+    username: 'Mark Zukerberg',
+    balance: 400,
+}
+
+withdraw(amount = 0, onSuccess, onError) {
+    if (amount > TRANSACTION_LIMIT) {
+        onError();
+        console.error(`Transaction limit ${TRANSACTION_LIMIT} reached.`);
+        return;
+    }
+    if (amount > this.balance) {
+        onError();
+        console.error(`Insufficient balance  - ${THIS_BAALANCE}!`);
+        return;
+    }
+    if (!amount) {
+        onError();
+        console.error('Withdraw amount cannot be 0');
+        return;
+    }
+    //successful withdraw
+    onSuccess();
+    this.balance -= amount;
+    console.log(`New account balance ${this.balance}`);
+},
+
+deposit(amount = 0, onSuccess, onError) {
+    if (amount > TRANSACTION_LIMIT) {
+        console.error(`Transaction limit ${TRANSACTION_LIMIT} reached`);
+        onError;
+        return; 
+    }
+    if (amount <= 0) {
+        console.error('Deposit amount must be more than 0');
+        onError;
+        return
+    }
+    // successful deposit
+    this.balance += amount;
+    onSuccess(`New account balance ${this.balance}`);
+
+};
+
+const doOnError = () => {
+    console.log('Hello from onError callback');
+}
+
+const doOnSuccess = () => {
+    console.log('Hello from onSuccess callback');
+}
+
+const doMoreOnSuccess = (consoleString ='') => {
+    console.log(consoleString);
+}
+
+account.withdraw(20_000, doOnError, doOnSuccess);
+
+account.deposit(20_000, doOnError, doMoreOnSuccess);
+
+
+// task 3 arrow fn, callback, forEach
+
+/**
+ * @param {any[]} items
+ * @param {Function} callback
+ */
+
+const logArrayItem = (item) => {
+    console.log(`We have ${item} in callback`);
+    }
+
+function logItems(items, callback) {
+    for (const item of items) {
+        console.log(`We have ${item}`);
+    }
+
+    op 1 forEach
+        
+items.forEach(logArrayItem)
+
+}
+
+logItems([42, 18, 135], logArrayItem);
+
+
+// task 4 arrow fn, callback, forEach
+
+function executeForEach(array = [], callback) {
+
+    const result = [];
+
+    array.forEach((item) => {
+        const callbackResult = callback(item);
+        result.push(callbackResult);
+    });
+    
+    return result;
+}
+
+const testArray = [42, 56, 98];
+const testCallback = (item) => item;
+
+console.log(executeForEach(testArray, testCallback));
