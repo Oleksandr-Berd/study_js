@@ -579,3 +579,201 @@ console.log(_.minBy(players, player => player.timePlayed));
 
 console.log(_.kebabCase('a b c')); // a-b-c
 
+//from Rapper
+
+// to count quantity of tags
+
+const tweets = [
+    { id:'000', likes: 5, tags: ['js', 'nodejs'] },
+    { id:'001', likes: 2, tags: ['html', 'css'] }
+    { id:'002', likes: 17, tags: ['html', 'js', 'nodejs'] }
+    { id:'003', likes: 8, tags: ['css', 'react'] }
+    {id:'004', likes: 0, tags: ['js', 'nodejs', 'react'] }
+]
+
+//collect all tags in new array
+
+const getTags = (tweets = []) =>
+    tweets.reduce((allTags, tweet) => {
+        allTags.push(...tweet.tags);
+        return allTags
+    }, []);
+
+const tags = getTags(tweets);
+
+// to count how many times we can see the tag in array
+
+const getTagStats = (acc = {}, tag = '') => {
+    if (!acc.hasOwnProperty(tag)) {
+        acc[tag] = 0;
+    }
+    acc[tag] += 1;
+    return acc;
+}
+
+const countTags = (tags) => tag.reduce(getTagStats, {});
+
+const tagCount = countTags(tags);
+
+
+const cars = [
+    { make:'Honda', model: 'CR-V', type: 'suv', amount: 14, price: 24045, onSale: true},
+    { make:'Honda', model: 'Accord', type: 'sedan', amount: 14, price: 24045, onSale: true},
+    { make:'Mazda', model: 'Mazda 6', type: 'sedan', amount: 14, price: 24045, onSale: false},
+    { make:'Mazda', model: 'CX-9', type: 'suv', amount: 14, price: 24045, onSale: true},
+    { make: 'Toyota', model: '4Runner', type: 'suv', amount: 14, price: 24045, onSale: false },
+    { make: 'Toyota', model: 'Sequoia', type: 'suv', amount: 14, price: 24045, onSale: false },
+    { make: 'Toyota', model: 'Tacoma', type: 'track', amount: 14, price: 24045, onSale: true },
+    { make: 'Ford', model: 'F-150', type: 'track', amount: 14, price: 24045, onSale: true },
+    { make: 'Ford', model: 'Fusion', type: 'sedan', amount: 14, price: 24045, onSale: true },
+    { make:'Ford', model: 'Explorer', type: 'suv', amount: 14, price: 24045, onSale: false},
+]
+
+
+// method map (easy)
+// get array with the names of exists cars (amount > 0)
+
+const getModelNames = (cars = []) => {
+    return cars
+        .map((car) => car.amount > 0
+            ? car.model
+            : null)
+        .filter((modelName) => modelName !== 0);
+}
+
+//op2
+
+const getModelNames = (cars = []) => {
+    return cars
+        .filter((car) => !!car.amount) //!'ford' -> false -> !false -> true
+        .map((car) => car.model)
+}
+
+console.log(getModelNames(cars));
+
+// method map
+// write function which will apply the discount to the price and return new array
+
+function applyDiscount(cars = [], discount = 0) {
+    
+    return cars.map((car) => {
+        return {
+            ...car,
+            price: car.price - discount
+        }
+    })
+}
+
+// op2
+
+function applyDiscount(cars = [], discount = 0) {
+    
+    return cars.map((car) => ({
+        ...car,
+        price: car.price - discount
+    })
+    );
+}
+
+// method filter
+// to write a function which will filter cars by price and return car's array with the price lower than set limit
+
+function filterByPrice(cars = [], limit = 0) {
+   return cars.filter((car) => car.price <= limit)
+}
+
+//op2
+
+function filterByPrice(cars = [], limit = 0) {
+   return cars.filter(({price}) => price <= limit)
+}
+
+
+// method find
+// a function has to return the car object with set model
+
+const getCarByModel = (cars = [], model = '') => {
+    return cars.find((car) => car.model === model);
+}
+
+//op 2
+
+const getCarByModel = (cars = [], model = '') => 
+ cars.find((car) => car.model === model);
+
+
+ // method filter + every
+ // to write a function which will get an array and filter like an object with the needed conditions
+
+const filterByHondaAndFord = {
+    make: (make) => ['Honda', 'Ford'].includes(make);
+}
+ 
+const filterCheapFords = {
+    make: (make) => make === 'Ford',
+    price: (price) => price < 22_000
+}
+
+const filterTrucksonSale = {
+    onSale: (onSale) => onSale = true,
+    type: (type) => type === 'truck'
+}
+
+/**
+ * get object with filters and return an array with cars for which
+ * every filter with the object returned true
+ * 
+ * @param {Object[]} cars
+ * @param {Object} filterObject the object with callbacks like filters
+ * 
+ * @return {Object[]}
+ * 
+ */
+
+function filterBy(cars, filterObject) {
+    
+    const filterKeys = Object, keys(filterObject);
+    
+    return cars.filter((car) => {
+        
+        const currentCarProp = car[ filterKeys[0] ];
+        
+        const isAllFiltersOk = filterKeys.every((key) => {
+            const currentFilterFn = filterObject[key];
+            return currentFilterFn(car[key]);
+        });
+
+        return isAllFiltersOk;
+
+        // return filterObject[filterKeys[0]](currentCarProp);
+
+        // const currentFilterFn = filterObject[filterKeys[0]];
+        // return currentFilterFn(currentCarProp);
+    });
+}
+
+// method sort
+
+/**
+ * @param {Object[]} cars
+ */
+
+const sortByAscendingAmount = function (cars = []) => {
+   return [...cars].sort((current, next) => current.amount - next.amount)
+}
+
+// method sort a bit harder
+
+/**
+ * @param {Object[]} cars
+ * @param {boolean} isAsc
+ */
+
+const sortByAmount = function (cars = [], isAsc = true) {
+
+    const sortsAsc = (current, next) => current.amount - next.amount;
+
+    const sortDesc = (current, next) => next.amount - current.amount;
+
+    return [...cars].sort(isAsc ? sortAsc : sortDesc)
+}

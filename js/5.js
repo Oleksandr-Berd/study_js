@@ -505,3 +505,54 @@ class Berserk extends Warrior {
 
     
 }
+
+
+// from Rapper
+
+function fnCreator() {
+    console.log('outer context', this);
+    return function () {
+        console.log('inner context', this);
+    }
+}
+
+fnCreator()()// виклик функцій
+
+
+const freddy = {
+    slogan: 'I want to break free',
+    fn: fnCreator(),
+}
+
+freddy.fn;
+
+//1
+
+const user = {
+    name: 'Simon',
+    age: 25,
+    hobby: 'swimming',
+    isPremium: true,
+
+
+    /**
+     * @param {string} currentMood;
+     */
+
+    setMood(currentMood) {
+        this.mood = currentMood;
+    },
+}
+
+const dog = {
+    name: 'Jerry',
+    age: 3,
+    breed: 'husky',
+}
+
+user.setMood('happy');
+console.log(`User ${user.name} now feel ${user.mood}`);
+
+function assignMethods(obj = {}, methods = {}) {
+    const entries = Object.entries(methods);
+}
