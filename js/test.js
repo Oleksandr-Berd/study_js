@@ -1,6 +1,8 @@
-function sum(a, b) {    
-let result = a + b
-  return result;
+function titleCase(str) {
+  const array = str.split(" ");
+  array.forEach(element => )
+  return array;
 }
 
-sum(2, 3)
+// titleCase("I'm a little tea pot");
+console.log(titleCase("I'm a little tea pot"));
