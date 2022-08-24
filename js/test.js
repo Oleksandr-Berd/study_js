@@ -1,8 +1,5 @@
-function titleCase(str) {
-  const array = str.split(" ");
-  array.forEach(element => )
-  return array;
+function Dog() {
+  this.name: "Infinity",
+    this.color: "Yellow-blue",
+    this.numLegs: 4,
 }
-
-// titleCase("I'm a little tea pot");
-console.log(titleCase("I'm a little tea pot"));
