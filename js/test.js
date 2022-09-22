@@ -1,7 +1,9 @@
-function destroyer(arr) {
-  return arr;
+function palindrome(str) {
+  str = str.toLowerCase();
+  str = str.trim();
+  return str === str.split("").reverse().join("");
 }
 
-destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+console.log(palindrome("_eye"));
 
-console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
+palindrome("eye");
